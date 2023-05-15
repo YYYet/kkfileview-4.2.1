@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.SocketUtils;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -274,7 +275,11 @@ public class FileHandlerService {
         String suffix;
         FileType type;
         String fileName;
+
         String fullFileName = WebUtils.getUrlParameterReg(url, "fullfilename");
+        // FIXME: 避免文件名中有文字被转义 先解密url
+        fullFileName = URLDecoder.decode(fullFileName);
+
         String urlStrr = null;
         URL urll;
         try {

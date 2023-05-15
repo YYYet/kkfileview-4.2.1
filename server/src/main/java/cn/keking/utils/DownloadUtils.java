@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.UUID;
 
 import static cn.keking.utils.KkFileUtils.isFtpUrl;
@@ -44,7 +45,9 @@ public class DownloadUtils {
             SslUtils.ignoreSsl();
             urlStr = fileAttribute.getUrl().replaceAll("\\+", "%20");
             urll = new URL(urlStr);
-            urlStrr = URLDecoder.decode(urll.getPath(), "UTF-8");
+            // 取消解密
+//            urlStrr = URLDecoder.decode(urll.getPath(), "UTF-8");
+
         } catch (Exception e) {
             logger.error("忽略SSL证书异常:", e);
         }

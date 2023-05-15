@@ -25,6 +25,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.List;
 
@@ -64,6 +66,9 @@ public class OnlinePreviewController {
         model.addAttribute("file", fileAttribute);
         FilePreview filePreview = previewFactory.get(fileAttribute);
         logger.info("预览文件url：{}，previewType：{}", fileUrl, fileAttribute.getType());
+//        fileAttribute.setUrl(URLEncoder.encode(fileAttribute.getUrl()));
+//        fileAttribute.setName(URLEncoder.encode(fileAttribute.getName()));
+//        System.out.println("处理后的属性 "+ fileAttribute.toString());
         return filePreview.filePreviewHandle(fileUrl, model, fileAttribute);
     }
 

@@ -19,6 +19,22 @@ public class FileAttribute {
     private String tifPreviewType;
     private Boolean skipDownLoad = false;
 
+    @Override
+    public String toString() {
+        return "FileAttribute{" +
+                "type=" + type +
+                ", suffix='" + suffix + '\'' +
+                ", name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                ", fileKey='" + fileKey + '\'' +
+                ", filePassword='" + filePassword + '\'' +
+                ", userToken='" + userToken + '\'' +
+                ", officePreviewType='" + officePreviewType + '\'' +
+                ", tifPreviewType='" + tifPreviewType + '\'' +
+                ", skipDownLoad=" + skipDownLoad +
+                '}';
+    }
+
     public FileAttribute() {
     }
 
